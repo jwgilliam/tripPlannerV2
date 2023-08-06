@@ -1,5 +1,5 @@
 // import methods from provider 
-import { getParks, getStateCodes, useStateCodes } from "./parkProvider.js";
+import { getParks, useStateCodes } from "./parkProvider.js";
 
 
 
@@ -19,18 +19,32 @@ const parkSearchComponent = () => {
           parkSearch: query
         }
       })
-
+      console.log(query)
       eventHub.dispatchEvent(message)
       //console.log(message)
     }
   })
 
+  const optionList = (states) => {
+    let stateOptions = ""
+    states.map(currentState => {
+      stateOptions += `<option value=${currentState.name}>${currentState.name}</option>`
+
+    })
+    //console.log(states)
+    return stateOptions
+  }
+
 
   //build form with input and search button
   const render = () => {
+    const states = useStateCodes()
     contentTarget.innerHTML = `
     <div class="search_bar_div">
-    <input type="text" isRequired id="search_input"/>
+    <select class="dropdown" id="state-select">
+    <option value="0">Please select a state...</option>
+    ${optionList((states))}
+    </select>
     <button id="search_button">Search</button>
     </div>
     `

@@ -5,7 +5,9 @@ let parks = []
 let stateCodes = []
 
 export const useStateCodes = () => {
+  //console.log(stateCodes)
   return stateCodes
+
 }
 
 export const useParks = () => {
@@ -23,7 +25,9 @@ export const getStateCodes = () => {
     .then((response) => response.json())
     .then((response) => {
       stateCodes = response.slice()
+      //console.log(stateCodes)
     })
+
 }
 
 
@@ -36,4 +40,14 @@ export const getParks = (state) => {
       parks = response.data
     })
 
+}
+
+export const savePark = (park) => {
+  return fetch("http://localhost:8088/parks", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(park)
+  })
 }
