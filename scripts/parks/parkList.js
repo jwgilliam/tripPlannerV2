@@ -1,11 +1,30 @@
 // import methods from provider 
-
-// contentTarget and eventHub
+import { getParks } from "./parkProvider.js"
+import parkComponent from "./park.js"
 
 // wrapper function for list component
+const parkListComponent = () => {
 
-//build button logic to add trips to database 
+  // contentTarget and eventHub
+  const contentTarget = document.querySelector(".park-list-container")
+  const eventHub = document.querySelector(".container")
 
-// build render function for displaying park data 
+
+  //build button logic to add parks to database 
+  eventHub.addEventListener("searchButtonClicked", (event) => {
+    //console.log("button check 1")
+    let searchedParks
+    getParks(event.detail.parkSearch).then(() => {
+      searchedParks = useSearchedCards()
+      //console.log(searchedCards)
+      render(searchedCards)
+    })
+
+
+  })
+
+  // build render function for displaying park data 
+}
 
 //export
+export default parkListComponent
