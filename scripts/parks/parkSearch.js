@@ -22,9 +22,15 @@ const parkSearchComponent = () => {
       // })
 
       const message = new CustomEvent("searchButtonClicked")
-      eventHub.dispatchEvent(message)
-      getParks(selection)
-      console.log(selection)
+
+      async function asyncFunction() {
+        await getParks(selection)
+        eventHub.dispatchEvent(message)
+        console.log(selection)
+      }
+
+      asyncFunction()
+
       // eventHub.dispatchEvent(message)
       //console.log(message)
     }

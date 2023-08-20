@@ -20,11 +20,7 @@ const parkListComponent = () => {
 
   eventHub.addEventListener("searchButtonClicked", (event) => {
     console.log("event listened")
-    const render = (parks) => {
-      contentTarget.innerHTML = parks.map((park) => {
-        return parkComponent(park)
-      }).join("")
-    }
+
     let parks = useParks()
     render(parks)
     console.log(parks)
@@ -40,7 +36,11 @@ const parkListComponent = () => {
   // }
 
   // build render function for displaying park data 
-
+  const render = (parks) => {
+    contentTarget.innerHTML = parks.map((park) => {
+      return parkComponent(park)
+    }).join("")
+  }
 
 }
 
