@@ -34,10 +34,11 @@ export const getStateCodes = () => {
 export const getParks = (state) => {
   let key = settings.key
 
-  return fetch(`https://developer.nps.gov/api/v1/parks?stateCode=${state.abbreviation}&api_key=${key}`)
+  return fetch(`https://developer.nps.gov/api/v1/parks?stateCode=${state}&api_key=${key}`)
     .then((response) => response.json())
     .then((response) => {
       parks = response.data
+      console.log(parks)
     })
 
 }

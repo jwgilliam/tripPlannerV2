@@ -1,5 +1,5 @@
 // import methods from provider 
-import { getParks, useStateCodes } from "./parkProvider.js";
+import { getParks, useStateCodes, getStateCodes } from "./parkProvider.js";
 
 
 
@@ -13,14 +13,19 @@ const parkSearchComponent = () => {
   eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "search_button") {
       //console.log("button check")
-      const query = document.querySelector("#search_input").value
-      const message = new CustomEvent("searchButtonClicked", {
-        detail: {
-          parkSearch: query
-        }
-      })
-      console.log(query)
+      getStateCodes()
+      let selection = document.querySelector("#state-select").value
+      // const message = new CustomEvent("searchButtonClicked", {
+      //   detail: {
+      //     parkSearch: query
+      //   }
+      // })
+
+      const message = new CustomEvent("searchButtonClicked")
       eventHub.dispatchEvent(message)
+      getParks(selection)
+      console.log(selection)
+      // eventHub.dispatchEvent(message)
       //console.log(message)
     }
   })
@@ -28,7 +33,7 @@ const parkSearchComponent = () => {
   const optionList = (states) => {
     let stateOptions = ""
     states.map(currentState => {
-      stateOptions += `<option value=${currentState.name}>${currentState.name}</option>`
+      stateOptions += `<option value=${currentState.abbreviation}>${currentState.name}</option>`
 
     })
     //console.log(states)
