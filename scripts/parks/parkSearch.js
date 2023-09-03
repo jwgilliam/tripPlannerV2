@@ -1,5 +1,5 @@
 // import methods from provider 
-import { getParks, useStateCodes, getStateCodes } from "./parkProvider.js";
+import { getParks, useStateCodes, getStateCodes, useParkCodes } from "./parkProvider.js";
 
 
 
@@ -15,24 +15,18 @@ const parkSearchComponent = () => {
       //console.log("button check")
       getStateCodes()
       let selection = document.querySelector("#state-select").value
-      // const message = new CustomEvent("searchButtonClicked", {
-      //   detail: {
-      //     parkSearch: query
-      //   }
-      // })
+      let parkCodes = useParkCodes()
+      // console.log(parkCodes)
 
       const message = new CustomEvent("searchButtonClicked")
 
       async function asyncFunction() {
         await getParks(selection)
         eventHub.dispatchEvent(message)
-        console.log(selection)
+        // console.log(selection)
+        // console.log(places)
       }
-
       asyncFunction()
-
-      // eventHub.dispatchEvent(message)
-      //console.log(message)
     }
   })
 
@@ -40,12 +34,10 @@ const parkSearchComponent = () => {
     let stateOptions = ""
     states.map(currentState => {
       stateOptions += `<option value=${currentState.abbreviation}>${currentState.name}</option>`
-
     })
     //console.log(states)
     return stateOptions
   }
-
 
   //build form with input and search button
   const render = () => {
@@ -60,7 +52,6 @@ const parkSearchComponent = () => {
     </div>
     `
   }
-
   render()
 }
 
