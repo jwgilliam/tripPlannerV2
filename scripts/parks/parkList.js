@@ -25,13 +25,14 @@ const parkListComponent = () => {
     async function asyncFunction2() {
       await getPlaces(parkCodes)
       places = usePlaces()
-      // console.log(places)
+      console.log(places)
+      render(parks, places)
     }
 
     asyncFunction2()
 
 
-    render(parks)
+
 
   })
 
@@ -44,9 +45,20 @@ const parkListComponent = () => {
   // }
 
   // build render function for displaying park data 
-  const render = (parks) => {
+  const render = (parks, places) => {
+    // console.log(places)
+    // places.map((place) => {
+    //   console.log("checking", place.relatedParks[0].parkCode)
+    // })
     contentTarget.innerHTML = parks.map((park) => {
-      return parkComponent(park)
+      //console.log(typeof (park.parkCode))
+
+      let placeArray = places.filter((place) =>
+        park.parkCode === place.relatedParks[0].parkCode
+      )
+
+      console.log(placeArray)
+      return parkComponent(park, placeArray)
       // park.places.map((place) => {
       //   return placeComponent(place)
       // })

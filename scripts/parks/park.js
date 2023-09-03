@@ -1,7 +1,8 @@
 // import
-
+import placeComponent from "../../places/place.js"
 //build park component wrapper function
-const parkComponent = (park) => {
+const parkComponent = (park, places) => {
+
   return `
   <div class="park-card">
   <div class="park-name">${park.fullName}</div>
@@ -9,16 +10,23 @@ const parkComponent = (park) => {
   <div class="park-description">${park.description}</div>
   <button class="add-park--${park.id}">Add park to trip</button>
   <details>
-  <summary>Data goes under here </summary>
-  <div>hereish</div>
-  <input type="checkbox" id="place-check" name="places" value="">
-  <label for="places-check">
-  <div>test</div>
-  <div>test2</div>
-  </label>
-  </details>
-  </div>
+  <summary> asdf </summary>
+  
+  
+  <div>${places.map((place) => {
+    if (places) {
+      return placeComponent(place)
+    }
+  }).join("")
+    }
+
+</div>
+
+  
+  </details >
+  </div >
   `
+
 }
 //export
 
