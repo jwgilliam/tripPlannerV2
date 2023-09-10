@@ -237,68 +237,14 @@
       "abbreviation": "WY"
     }
   ],
-  "parks": [
-    {
-      "id": "C4E1A9A4-D121-4734-94FA-7788A93C2AAA"
-    },
-    {
-      "id": "7D6098F9-3F75-4775-A56D-CD9C7F9A9488"
-    },
-    {
-      "id": "94B046DC-2AFD-4ECB-A60D-CE210A8550B1"
-    }
-  ],
   "trips": [
-    {
-      "id": 1,
-      "parkId": "C4E1A9A4-D121-4734-94FA-7788A93C2AAA",
-      "placeIds": [
-        "",
-        ""
-      ]
-    },
-    {
-      "parkId": "94B046DC-2AFD-4ECB-A60D-CE210A8550B1",
-      "placeIds": [],
-      "id": 2
-    },
-    {
-      "parkId": "94B046DC-2AFD-4ECB-A60D-CE210A8550B1",
-      "placeIds": [],
-      "id": 3
-    },
-    {
-      "parkId": "94B046DC-2AFD-4ECB-A60D-CE210A8550B1",
-      "placeIds": [],
-      "id": 4
-    },
-    {
-      "parkId": "99907F85-7E09-40FE-BF5E-A9AB7F09A7E2",
-      "placeIds": [
-        [
-          "C39F1071-736B-49E6-864E-5BB417131FBB"
-        ]
-      ],
-      "id": 5
-    },
     {
       "parkId": "87F9EFC7-1951-4250-A367-644EC5C4E6A2",
       "placeIds": [
-        [
-          "0672AE91-CA10-4142-9A06-3BE0EF21175B",
-          "8A06190A-72D3-4575-959B-EA85BB06921E"
-        ]
+        "0672AE91-CA10-4142-9A06-3BE0EF21175B",
+        "8A06190A-72D3-4575-959B-EA85BB06921E"
       ],
-      "id": 6
-    },
-    {
-      "parkId": "25554F74-A4AB-4C49-9071-341F00F0DAB8",
-      "placeIds": [
-        "35F66699-67AC-44FC-B8D7-54AD598918DA",
-        "C07E7116-036C-42D9-AFC9-CCFC06FEBA5B",
-        "A84A4CC1-3280-4C16-BDF7-27F4B1923D51"
-      ],
-      "id": 7
+      "id": 1
     }
   ]
 }

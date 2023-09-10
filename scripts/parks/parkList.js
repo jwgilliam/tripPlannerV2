@@ -8,6 +8,8 @@ import placeComponent from "../../places/place.js"
 const parkListComponent = () => {
 
   let places = []
+  let parks = []
+  let parkCodes = []
 
   // contentTarget and eventHub
   const contentTarget = document.querySelector(".park-list-container")
@@ -17,19 +19,25 @@ const parkListComponent = () => {
 
   eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("add-park--")) {
-      console.log("clicky")
+      // console.log("clicky")
       const [prefix, id] = clickEvent.target.id.split("--");
+      const selectedPark = parks.find((element) => element.id === id)
+      // console.log(selectedPark)
       const checkboxes = document.querySelectorAll(".checkbox")
       let selectedPlaces = []
       //console.log(checkboxes.length)
+
+      // park.parkCode === place.relatedParks[0].parkCode
       for (const place of places) {
         for (const checkbox of checkboxes) {
-          if (checkbox.id === place.id && checkbox.checked === true) {
+          if (checkbox.id === place.id && checkbox.checked === true && selectedPark.parkCode === place.relatedParks[0].parkCode) {
+            // console.log(id)
+            //  console.log(place.relatedParks[0].parkCode)
             selectedPlaces.push(checkbox.id)
           }
         }
       }
-      console.log(selectedPlaces)
+      // console.log(selectedPlaces)
 
       const newPark = {
         parkId: id,
@@ -45,9 +53,9 @@ const parkListComponent = () => {
   eventHub.addEventListener("searchButtonClicked", (event) => {
     // console.log("event listened")
 
-    let parks = useParks()
+    parks = useParks()
     // console.log(parks)
-    let parkCodes = useParkCodes()
+    parkCodes = useParkCodes()
     // console.log(parkCodes)
 
 
