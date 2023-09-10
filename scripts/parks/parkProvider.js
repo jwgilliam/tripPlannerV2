@@ -67,7 +67,7 @@ export const getPlaces = (parkCode) => {
 }
 
 export const savePark = (park) => {
-  return fetch("http://localhost:8088/parks", {
+  return fetch("http://localhost:8088/trips", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

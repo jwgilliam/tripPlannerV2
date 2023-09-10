@@ -7,6 +7,7 @@ import placeComponent from "../../places/place.js"
 // wrapper function for list component
 const parkListComponent = () => {
 
+  let places = []
 
   // contentTarget and eventHub
   const contentTarget = document.querySelector(".park-list-container")
@@ -18,8 +19,22 @@ const parkListComponent = () => {
     if (clickEvent.target.id.startsWith("add-park--")) {
       console.log("clicky")
       const [prefix, id] = clickEvent.target.id.split("--");
+      const checkboxes = document.querySelectorAll(".checkbox")
+      let selectedPlaces = []
+      //console.log(checkboxes.length)
+      for (const place of places) {
+        for (const checkbox of checkboxes) {
+          if (checkbox.id === place.id && checkbox.checked === true) {
+            selectedPlaces.push(checkbox.id)
+          }
+        }
+      }
+      console.log(selectedPlaces)
+
       const newPark = {
-        id: id
+        parkId: id,
+        placeIds: selectedPlaces
+
       }
       savePark(newPark);
     }
@@ -34,7 +49,7 @@ const parkListComponent = () => {
     // console.log(parks)
     let parkCodes = useParkCodes()
     // console.log(parkCodes)
-    let places = []
+
 
     async function asyncFunction2() {
       await getPlaces(parkCodes)
