@@ -1,0 +1,17 @@
+#place-container {
+  font-size: 14px;
+}
+
+#place-text {
+  font-size: 14px;
+  text-indent: 2%;
+  border: solid;
+}
+
+#place-dropdown {
+  font-size: 14px;
+}
+
+.place-title {
+  font-weight: bolder;
+}

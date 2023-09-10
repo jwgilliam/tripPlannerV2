@@ -236,5 +236,16 @@
       "name": "Wyoming",
       "abbreviation": "WY"
     }
+  ],
+  "parks": [
+    {
+      "id": "C4E1A9A4-D121-4734-94FA-7788A93C2AAA"
+    },
+    {
+      "id": "7D6098F9-3F75-4775-A56D-CD9C7F9A9488"
+    },
+    {
+      "id": "94B046DC-2AFD-4ECB-A60D-CE210A8550B1"
+    }
   ]
 }

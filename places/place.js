@@ -1,10 +1,10 @@
 const placeComponent = (place) => {
   return `
   <div id="place-container>
-  <label for="${place.id}">
-  <input type="checkbox" id="${place.id}" name="${place.title}" value="" />
+  <label for="${place.id}" id="place-title">
+  <input type="checkbox" id="${place.id}" name="${place.title}" value="" class="place-title" />
   ${place.title}</label>
-  <div>${place.bodyText}</div>
+  <div id="place-text">${place.bodyText}</div>
   </div>
   `
 }

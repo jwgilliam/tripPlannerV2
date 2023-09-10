@@ -8,8 +8,8 @@ const parkComponent = (park, places) => {
   <div class="park-name">${park.fullName}</div>
   <image class="park-image" src="${park.images[0].url}" width="500" height="500"> 
   <div class="park-description">${park.description}</div>
-  <button class="add-park--${park.id}">Add park to trip</button>
-  <details>
+  <button id="add-park--${park.id}">Add park to trip</button>
+  <details id="place-dropdown">
   <summary> asdf </summary>
   
   
